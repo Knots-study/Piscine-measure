@@ -1,20 +1,20 @@
 #include <stdio.h>
 
 int main (void){
-    char str1[] = "AbcDefGHijk1234lmNOP";
-    char *pstr; //ポインタの宣言
-    pstr = str; //strの先頭のアドレスがpstrの中に入る, この場合のstrはstr[]の先頭のアドレスを示している
+    char str1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char str2[30];
+    char *pstr1, *pstr2;
 
-    while(*pstr != '\0'){
-        printf("%c = %p\n",*pstr, pstr);
-        if('a' <= *pstr && *pstr <= 'z'){
-            *pstr -= 'a'-'A';
-        }
-        pstr++;
+    pstr1 = str1;
+    pstr2 = str2 + 26; //26個先のアドレスを入れておく
+    *pstr2 = '\0';pstr2--;
+
+    while(*pstr1 != '\0'){
+        *pstr2 = *pstr1;
+        pstr1++;
+        pstr2--;
     }
 
-    printf("%s\n", str);
-    printf("%c = %p\n",str[0],str);
-
+    printf("%s\n", str2);
     return 0;
 }
