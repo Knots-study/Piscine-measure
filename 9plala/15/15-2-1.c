@@ -22,7 +22,5 @@ int main(void){
         i++;
         printf("%s", "貸し出しＯＫです。");
     }
-
-
     return 0;
 }
